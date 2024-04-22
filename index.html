@@ -4,6 +4,38 @@
         <meta charset="UTF-8">
         <meta name = "viewport" content = "width=device width, initial-scale = 1.0"/>
         <link rel = "stylesheet" href = "men.css"/>
+        <script>
+            // JavaScript code here
+            document.addEventListener("DOMContentLoaded", function() {
+                const addCardBtns = document.querySelectorAll('.btn-for-card');
+                const cart = [];
+    
+                addCardBtns.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const item = button.parentElement.parentElement.querySelector('.brand-for-stuff').innerText;
+                        addToCart(item);
+                    });
+                });
+    
+                function addToCart(item) {
+                    cart.push(item);
+                    alert("Added to cart");
+                }
+    
+                // Function to remove an item from the cart
+                function removeFromCart(index) {
+                    cart.splice(index, 1);
+                }
+    
+                // Example function to display cart contents
+                function displayCart() {
+                    console.log("Items in cart:");
+                    cart.forEach((item, index) => {
+                        console.log(`${index + 1}. ${item}`);
+                    });
+                }
+            });
+        </script>
     </head>
     <body>
         <section class = "stuff">
